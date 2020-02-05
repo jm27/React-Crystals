@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SimpleContainer from './Components/FluidContainer';
 import CenteredGrid from './Components/CenteredGrid';
 
 function App() {
   return (
-    <CenteredGrid></CenteredGrid>
+    <SimpleContainer></SimpleContainer>
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
