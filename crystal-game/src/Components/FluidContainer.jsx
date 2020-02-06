@@ -8,7 +8,7 @@ export default function SimpleContainer() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="l">
+      <Container maxWidth="m">
         <CenteredGrid/>
       </Container>
     </React.Fragment>
