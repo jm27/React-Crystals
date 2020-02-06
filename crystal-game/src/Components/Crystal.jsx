@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-export default function CrystalImage() {
+export default function CrystalImage(props) {
     return (
-      <image src=''></image>
+      <img src={props.src}></img>
     );
   }

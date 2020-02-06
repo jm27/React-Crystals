@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import CrystalImage from './Crystal'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -51,7 +52,7 @@ Each time when the game starts. the game will change the values of each crystal.
                     <Paper className={classes.paper}>xs=6 sm=4</Paper>
                 </Grid>
                 <Grid item xs={6} sm={4}>
-                    <Paper className={classes.paper}>xs=6 sm=4</Paper>
+                    <Paper className={classes.paper}><CrystalImage src='https://cdn.shopify.com/s/files/1/0912/7764/articles/blue-crystals-vector-clipart_ed1ae347-444b-4261-9001-1137ae396bab_2048x.png?v=1563439532'></CrystalImage></Paper>
                 </Grid>
                 <Grid item xs={6} sm={4}>
                     <Paper className={classes.paper}>xs=6 sm=4</Paper>
