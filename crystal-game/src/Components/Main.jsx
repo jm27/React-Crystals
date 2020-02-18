@@ -18,13 +18,14 @@ export default function main() {
             Each time when the game starts. the game will change the values of each crystal.
             </p>
             <div className='imagesDiv'>
-                <CrystalImage src='./images/crystal-1.jpg' ></CrystalImage>
-                <CrystalImage src='./images/crystal-2.jpg' ></CrystalImage>
-                <CrystalImage src='./images/crystal-3.jpg' ></CrystalImage>
-                <CrystalImage src='./images/crystal-4.jpg' ></CrystalImage>
+                <CrystalImage src='./images/crystal-1.jpg'></CrystalImage>
+                <CrystalImage src='./images/crystal-2.jpg'></CrystalImage>
+                <CrystalImage src='./images/crystal-3.jpg'></CrystalImage>
+                <CrystalImage src='./images/crystal-4.jpg'></CrystalImage>
             </div>
             <div className="NumDiv">
                 <Number></Number>
+                <Score title='Your Number' score='0'></Score>
             </div>
             <div className='ScoresDiv'>
                 <Score title='Wins' score='1'></Score>

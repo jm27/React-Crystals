@@ -5,7 +5,7 @@ export default function randomNum(){
 console.log(randInt)
    return (
        <h3>
-           Number to Match:{randInt}
+           Number to Match : {randInt}
        </h3>
    )
 }

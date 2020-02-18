@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function score(props){
     return(
-        <h3>{props.title}:{props.score}</h3>
+        <h3>{props.title} : {props.score}</h3>
     )
 }
