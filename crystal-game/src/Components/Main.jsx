@@ -1,6 +1,7 @@
 import React from 'react';
 import CrystalImage from './Crystal';
 import Score from "./Score"
+import Number from "./Number"
 
 export default function main() {
     return (
@@ -22,9 +23,12 @@ export default function main() {
                 <CrystalImage src='./images/crystal-3.jpg'></CrystalImage>
                 <CrystalImage src='./images/crystal-4.jpg'></CrystalImage>
             </div>
+            <div className="NumDiv">
+                <Number></Number>
+            </div>
             <div className='ScoresDiv'>
-                <Score score='1'></Score>
-                <Score score='2'></Score>
+                <Score title='Wins' score='1'></Score>
+                <Score title='Losses' score='2'></Score>
             </div>
         </div>
     )
