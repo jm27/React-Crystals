@@ -1,9 +1,10 @@
 import React from 'react';
 import CrystalImage from './Crystal';
+import Score from "./Score"
 
 export default function main() {
     return (
-        <div>
+        <div className='mainSection'>
             <p className='instructions'> Instructions
             You will be given a random number at the start of the game.
 
@@ -15,12 +16,16 @@ export default function main() {
 
             Each time when the game starts. the game will change the values of each crystal.
             </p>
-            <div className='images'>
-                <CrystalImage src='https://cdn.shopify.com/s/files/1/0912/7764/articles/blue-crystals-vector-clipart_ed1ae347-444b-4261-9001-1137ae396bab_2048x.png?v=1563439532'></CrystalImage>
-                <CrystalImage src='https://cdn.shopify.com/s/files/1/0912/7764/articles/blue-crystals-vector-clipart_ed1ae347-444b-4261-9001-1137ae396bab_2048x.png?v=1563439532'></CrystalImage>
-                <CrystalImage src='https://cdn.shopify.com/s/files/1/0912/7764/articles/blue-crystals-vector-clipart_ed1ae347-444b-4261-9001-1137ae396bab_2048x.png?v=1563439532'></CrystalImage>
-                <CrystalImage src='https://cdn.shopify.com/s/files/1/0912/7764/articles/blue-crystals-vector-clipart_ed1ae347-444b-4261-9001-1137ae396bab_2048x.png?v=1563439532'></CrystalImage>            
-                </div>
+            <div className='imagesDiv'>
+                <CrystalImage src='./images/crystal-1.jpg'></CrystalImage>
+                <CrystalImage src='./images/crystal-2.jpg'></CrystalImage>
+                <CrystalImage src='./images/crystal-3.jpg'></CrystalImage>
+                <CrystalImage src='./images/crystal-4.jpg'></CrystalImage>
+            </div>
+            <div className='ScoresDiv'>
+                <Score score='1'></Score>
+                <Score score='2'></Score>
+            </div>
         </div>
     )
 }

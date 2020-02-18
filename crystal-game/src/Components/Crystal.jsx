@@ -3,6 +3,6 @@ import React from 'react';
 
 export default function CrystalImage(props) {
     return (
-      <img src={props.src}></img>
+      <img className='images' alt='Crystals' src={props.src}></img>
     );
   }
