@@ -4,6 +4,12 @@ import Score from "./Score"
 import Number from "./Number"
 
 export default function main() {
+
+    const state = {
+        wins : 0,
+        losses : 0,
+        number: 0
+      }
     return (
         <div className='mainSection'>
             <p className='instructions'> Instructions
@@ -25,7 +31,7 @@ export default function main() {
             </div>
             <div className="NumDiv">
                 <Number></Number>
-                <Score title='Your Number' score='0'></Score>
+                <Score title='Your Number'></Score>
             </div>
             <div className='ScoresDiv'>
                 <Score title='Wins' score='1'></Score>
