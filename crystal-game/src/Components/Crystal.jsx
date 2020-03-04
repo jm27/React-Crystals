@@ -8,11 +8,10 @@ export default function CrystalImage(props) {
   }
 
   function getRandNum(e){
-   const num = e.getAttribute('datatype');
-   console.log(num)
+   console.log(e.target.alt)
   }
 
   return (
-      <img className='images' onClick={() => console.log(this)} datatype={randNum()} alt='Crystals' src={props.src}></img>
+      <img className='images' onClick={getRandNum} alt={randNum()} src={props.src}></img>
     );
   }
