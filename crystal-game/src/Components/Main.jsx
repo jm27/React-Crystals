@@ -1,42 +1,65 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CrystalImage from './Crystal';
-import Score from "./Score"
-import Number from "./Number"
+import Score from "./Score";
+import Number from "./Number";
 
-export default function main() {
 
-    const state = {
-        wins : 0,
-        losses : 0,
-        number: 0
-      }
-    return (
-        <div className='mainSection'>
-            <p className='instructions'> Instructions
-            You will be given a random number at the start of the game.
 
-            There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
+export default class Main extends Component {
 
-            You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.
+    constructor(props) {
+        super(props);
+        this.state = {
+            number:0,
+            pictures: [],
+            getRandNum: function getRandNum(e) {
+                console.log(e.target.alt);
+                let value = parseInt(e.target.alt);
+                let sum = 0;
+                this.state.number = this.state.number + value
+                console.log("sum= " + this.state.number, "value= " + value)
+                return this.number
+            }
+        };
+    }
 
-            The value of each crystal is hidden from you until you click on it.
+    // componentDidMount() {
 
-            Each time when the game starts. the game will change the values of each crystal.
+
+    //     this.state.getRandNum;
+    // }
+
+
+    render() {
+        return (
+            < div className='mainSection' >
+                <p className='instructions'> Instructions
+                You will be given a random number at the start of the game.
+
+                There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
+
+                You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.
+
+                The value of each crystal is hidden from you until you click on it.
+
+                Each time when the game starts. the game will change the values of each crystal.
             </p>
-            <div className='imagesDiv'>
-                <CrystalImage src='./images/crystal-1.jpg'></CrystalImage>
-                <CrystalImage src='./images/crystal-2.jpg'></CrystalImage>
-                <CrystalImage src='./images/crystal-3.jpg'></CrystalImage>
-                <CrystalImage src='./images/crystal-4.jpg'></CrystalImage>
-            </div>
-            <div className="NumDiv">
-                <Number></Number>
-                <Score title='Your Number'></Score>
-            </div>
-            <div className='ScoresDiv'>
-                <Score title='Wins' score='1'></Score>
-                <Score title='Losses' score='2'></Score>
-            </div>
-        </div>
-    )
-}
+                <div className='imagesDiv'>
+                    <CrystalImage getRandNum={this.state.getRandNum} src='./images/crystal-1.jpg'></CrystalImage>
+                    <CrystalImage getRandNum={this.state.getRandNum} src='./images/crystal-2.jpg'></CrystalImage>
+                    <CrystalImage getRandNum={this.state.getRandNum} src='./images/crystal-3.jpg'></CrystalImage>
+                    <CrystalImage getRandNum={this.state.getRandNum} src='./images/crystal-4.jpg'></CrystalImage>
+                </div>
+                <div className="NumDiv">
+                    <Number></Number>
+                    <Score title='Your Number' score={this.state.number}></Score>
+                </div>
+                <div className='ScoresDiv'>
+                    <Score title='Wins' score='1'></Score>
+                    <Score title='Losses' score='2'></Score>
+                </div>
+            </div >
+        );
+    }
+};
+
