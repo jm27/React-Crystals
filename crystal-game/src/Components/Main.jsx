@@ -11,24 +11,17 @@ export default class Main extends Component {
         super(props);
         this.state = {
             number:0,
-            pictures: [],
-            getRandNum: function getRandNum(e) {
-                console.log(e.target.alt);
-                let value = parseInt(e.target.alt);
-                let sum = 0;
-                this.state.number = this.state.number + value
-                console.log("sum= " + this.state.number, "value= " + value)
-                return this.number
-            }
+            pictures: []
         };
     }
 
-    // componentDidMount() {
-
-
-    //     this.state.getRandNum;
-    // }
-
+    getRandNum = (e) => {
+        console.log(e.target.alt);
+        this.setState({
+            number: this.state.number
+        });
+        console.log(this.state.number)
+    }
 
     render() {
         return (
@@ -45,10 +38,10 @@ export default class Main extends Component {
                 Each time when the game starts. the game will change the values of each crystal.
             </p>
                 <div className='imagesDiv'>
-                    <CrystalImage getRandNum={this.state.getRandNum} src='./images/crystal-1.jpg'></CrystalImage>
-                    <CrystalImage getRandNum={this.state.getRandNum} src='./images/crystal-2.jpg'></CrystalImage>
-                    <CrystalImage getRandNum={this.state.getRandNum} src='./images/crystal-3.jpg'></CrystalImage>
-                    <CrystalImage getRandNum={this.state.getRandNum} src='./images/crystal-4.jpg'></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-1.jpg'></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-2.jpg'></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-3.jpg'></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-4.jpg'></CrystalImage>
                 </div>
                 <div className="NumDiv">
                     <Number></Number>
