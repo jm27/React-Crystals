@@ -10,20 +10,50 @@ export default class Main extends Component {
         super(props);
         this.state = {
             number: 0,
-            pictures: [],
-            randInt: Math.floor(Math.random() * (60 - 10)) + 10
+            pictures: ['./images/crystal-1.jpg', './images/crystal-2.jpg', './images/crystal-3.jpg', './images/crystal-4.jpg'],
+            randInt: Math.floor(Math.random() * (60 - 10)) + 10,
+            wins: false,
+            losses: false
         };
         this.getRandNum = this.getRandNum.bind(this)
     }
 
     getRandNum = (e) => {
-        console.log(e.target);
-        this.setState({
-            number: this.state.number
-        });
+        console.log(e.target.alt);
+        let imgNumber = parseInt(e.target.alt);
+        this.setState((state) => ({
+            number: (state.number + imgNumber)
+        }));
         console.log(this.state.number)
+        this.gameLogic()
     }
 
+
+
+
+    gameLogic() {
+        if (this.state.number === this.state.randInt) {
+            console.log(this.state.wins)
+            this.setState(function (state) {
+                return {
+                    wins: true
+                };
+            });
+            // this.setState(() => ({
+            //     wins: this.state.wins + 1
+            //   }));
+        }
+        else if (this.state.number > this.state.randInt) {
+            console.log(this.state.losses)
+            this.setState(function (state) {
+                return {
+                    losses: true
+                };
+            });
+            // this.setState(()=>({ losses: this.state.losses + 1 }));
+            console.log("tu perdisteeeess")
+        }
+    }
     render() {
         return (
             < div className='mainSection' >
@@ -39,18 +69,18 @@ export default class Main extends Component {
                 Each time when the game starts. the game will change the values of each crystal.
             </p>
                 <div className='imagesDiv'>
-                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-1.jpg' data={this.imgNumber}></CrystalImage>
-                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-2.jpg' data={this.imgNumber}></CrystalImage>
-                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-3.jpg' data={this.imgNumber}></CrystalImage>
-                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-4.jpg' data={this.imgNumber}></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[0]} ></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[1]} ></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[2]} ></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[3]} ></CrystalImage>
                 </div>
                 <div className="NumDiv">
-                    <Score title='Number to Match' score={this.state.randInt}></Score>
+                    <Score title='Number to Match' score={this.state.randInt} ></Score>
                     <Score title='Your Number' score={this.state.number}></Score>
                 </div>
                 <div className='ScoresDiv'>
-                    <Score title='Wins' score='1'></Score>
-                    <Score title='Losses' score='2'></Score>
+                    <Score title='Wins' score={this.state.wins}></Score>
+                    <Score title='Losses' score={this.state.losses}></Score>
                 </div>
             </div >
         );
