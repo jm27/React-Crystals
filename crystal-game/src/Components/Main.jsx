@@ -12,20 +12,21 @@ export default class Main extends Component {
             number: 0,
             pictures: ['./images/crystal-1.jpg', './images/crystal-2.jpg', './images/crystal-3.jpg', './images/crystal-4.jpg'],
             randInt: Math.floor(Math.random() * (60 - 10)) + 10,
-            wins: false,
-            losses: false
+            wins: 0,
+            losses: 0
         };
         this.getRandNum = this.getRandNum.bind(this)
     }
 
     getRandNum = (e) => {
+        
         console.log(e.target.alt);
         let imgNumber = parseInt(e.target.alt);
-        this.setState((state) => ({
-            number: (state.number + imgNumber)
-        }));
+        this.setState({
+            number: (this.state.number + imgNumber)
+        },this.gameLogic);
         console.log(this.state.number)
-        this.gameLogic()
+       
     }
 
 
@@ -34,22 +35,22 @@ export default class Main extends Component {
     gameLogic() {
         if (this.state.number === this.state.randInt) {
             console.log(this.state.wins)
-            this.setState(function (state) {
+            this.setState(function () {
                 return {
-                    wins: true
+                    wins: (this.state.wins + 1)
                 };
-            });
+            }, ()=>{console.log('you win')});
             // this.setState(() => ({
             //     wins: this.state.wins + 1
             //   }));
         }
         else if (this.state.number > this.state.randInt) {
             console.log(this.state.losses)
-            this.setState(function (state) {
+            this.setState(function () {
                 return {
-                    losses: true
+                    losses: (this.state.losses + 1)
                 };
-            });
+            }, ()=>{console.log('you lost')});
             // this.setState(()=>({ losses: this.state.losses + 1 }));
             console.log("tu perdisteeeess")
         }
@@ -76,7 +77,7 @@ export default class Main extends Component {
                 </div>
                 <div className="NumDiv">
                     <Score title='Number to Match' score={this.state.randInt} ></Score>
-                    <Score title='Your Number' score={this.state.number}></Score>
+                    <Score title='Your Number' score={this.state.number} ></Score>
                 </div>
                 <div className='ScoresDiv'>
                     <Score title='Wins' score={this.state.wins}></Score>
