@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-
-export default function CrystalImage(props) {
-  function randNum() {
-   var imgRandNum = Math.floor(Math.random() * (10 - 1)) + 1
-   console.log(imgRandNum)
-  return imgRandNum
+export default class CrystalImage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      randInt: Math.floor(Math.random() * (1 - 10)) + 10
+    };
   }
-
-  return (
-      <img className='images' onClick={props.getRandNum} alt={randNum()} src={props.src}></img>
+  render() {
+    return (
+      <img className='images' onClick={this.props.getRandNum} alt={this.state.randInt} src={this.props.src}></img>
     );
   }
+}

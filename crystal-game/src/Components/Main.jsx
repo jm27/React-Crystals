@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CrystalImage from './Crystal';
 import Score from "./Score";
-import Number from "./Number";
 
 
 
@@ -10,13 +9,15 @@ export default class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            number:0,
-            pictures: []
+            number: 0,
+            pictures: [],
+            randInt: Math.floor(Math.random() * (60 - 10)) + 10
         };
+        this.getRandNum = this.getRandNum.bind(this)
     }
 
     getRandNum = (e) => {
-        console.log(e.target.alt);
+        console.log(e.target);
         this.setState({
             number: this.state.number
         });
@@ -38,13 +39,13 @@ export default class Main extends Component {
                 Each time when the game starts. the game will change the values of each crystal.
             </p>
                 <div className='imagesDiv'>
-                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-1.jpg'></CrystalImage>
-                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-2.jpg'></CrystalImage>
-                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-3.jpg'></CrystalImage>
-                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-4.jpg'></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-1.jpg' data={this.imgNumber}></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-2.jpg' data={this.imgNumber}></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-3.jpg' data={this.imgNumber}></CrystalImage>
+                    <CrystalImage getRandNum={this.getRandNum} src='./images/crystal-4.jpg' data={this.imgNumber}></CrystalImage>
                 </div>
                 <div className="NumDiv">
-                    <Number></Number>
+                    <Score title='Number to Match' score={this.state.randInt}></Score>
                     <Score title='Your Number' score={this.state.number}></Score>
                 </div>
                 <div className='ScoresDiv'>
