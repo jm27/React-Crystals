@@ -15,46 +15,26 @@ export default class Main extends Component {
             wins: 0,
             losses: 0
         };
-        this.getRandNum = this.getRandNum.bind(this)
     }
 
     getRandNum = (e) => {
-        
-        console.log(e.target.alt);
         let imgNumber = parseInt(e.target.alt);
         this.setState({
             number: (this.state.number + imgNumber)
-        },this.gameLogic);
-        console.log(this.state.number)
-       
+        }, this.gameLogic);
     }
-
-
-
 
     gameLogic() {
         if (this.state.number === this.state.randInt) {
-            console.log(this.state.wins)
-            this.setState(function () {
-                return {
-                    wins: (this.state.wins + 1)
-                };
-            }, ()=>{console.log('you win')});
-            // this.setState(() => ({
-            //     wins: this.state.wins + 1
-            //   }));
+            this.setState(() => ({
+                wins: this.state.wins + 1
+            }), console.log('ganastes!'));
         }
         else if (this.state.number > this.state.randInt) {
-            console.log(this.state.losses)
-            this.setState(function () {
-                return {
-                    losses: (this.state.losses + 1)
-                };
-            }, ()=>{console.log('you lost')});
-            // this.setState(()=>({ losses: this.state.losses + 1 }));
-            console.log("tu perdisteeeess")
+            this.setState(() => ({ losses: this.state.losses + 1 }), console.log("tu perdisteeeess"));
         }
     }
+
     render() {
         return (
             < div className='mainSection' >
