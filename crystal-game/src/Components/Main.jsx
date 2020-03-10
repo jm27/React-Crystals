@@ -9,12 +9,14 @@ export default class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            start: false,
             number: 0,
             pictures: ['./images/crystal-1.jpg', './images/crystal-2.jpg', './images/crystal-3.jpg', './images/crystal-4.jpg'],
             randInt: Math.floor(Math.random() * (60 - 10)) + 10,
             wins: 0,
             losses: 0
         };
+        this.handleClick=this.handleClick.bind(this)
     }
 
     getRandNum = (e) => {
@@ -35,9 +37,15 @@ export default class Main extends Component {
         }
     }
 
+    handleClick() {
+        this.setState({
+            start: true
+        })
+    }
+
     render() {
-        return (
-            < div className='mainSection' >
+        if (!this.state.start) {
+            return (<div className='start'>
                 <p className='instructions'> Instructions
                 You will be given a random number at the start of the game.
 
@@ -48,23 +56,31 @@ export default class Main extends Component {
                 The value of each crystal is hidden from you until you click on it.
 
                 Each time when the game starts. the game will change the values of each crystal.
-            </p>
-                <div className='imagesDiv'>
-                    <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[0]} ></CrystalImage>
-                    <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[1]} ></CrystalImage>
-                    <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[2]} ></CrystalImage>
-                    <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[3]} ></CrystalImage>
-                </div>
-                <div className="NumDiv">
-                    <Score title='Number to Match' score={this.state.randInt} ></Score>
-                    <Score title='Your Number' score={this.state.number} ></Score>
-                </div>
-                <div className='ScoresDiv'>
-                    <Score title='Wins' score={this.state.wins}></Score>
-                    <Score title='Losses' score={this.state.losses}></Score>
-                </div>
-            </div >
-        );
+        </p>
+                <button onClick={this.handleClick}>Start!</button></div>)
+        }
+        else {
+            return (
+
+                < div className='mainSection' >
+                    <div className='imagesDiv'>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[0]} ></CrystalImage>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[1]} ></CrystalImage>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[2]} ></CrystalImage>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[3]} ></CrystalImage>
+                    </div>
+                    <div className="NumDiv">
+                        <Score title='Number to Match' score={this.state.randInt} ></Score>
+                        <Score title='Your Number' score={this.state.number} ></Score>
+                    </div>
+                    <div className='ScoresDiv'>
+                        <Score title='Wins' score={this.state.wins}></Score>
+                        <Score title='Losses' score={this.state.losses}></Score>
+                    </div>
+                </div >
+            )
+        }
+
     }
 };
 
