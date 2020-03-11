@@ -24,22 +24,30 @@ export default class Main extends Component {
         this.setState({
             number: (this.state.number + imgNumber)
         }, this.gameLogic);
+        console.log('ganasstess')
     }
 
     gameLogic() {
         if (this.state.number === this.state.randInt) {
             this.setState(() => ({
                 wins: this.state.wins + 1
-            }), console.log('ganastes!'));
+            }),this.reset);
         }
         else if (this.state.number > this.state.randInt) {
-            this.setState(() => ({ losses: this.state.losses + 1 }), console.log("tu perdisteeeess"));
+            this.setState(() => ({ losses: this.state.losses + 1 }), this.reset);
+            console.log('perdistess')
         }
     }
 
     handleClick() {
         this.setState({
             start: true
+        })
+    }
+    reset(){
+        this.setState({
+          number: 0,
+          randInt: Math.floor(Math.random() * (60 - 10)) + 10
         })
     }
 
@@ -62,7 +70,7 @@ export default class Main extends Component {
         else {
             return (
 
-                < div className='mainSection' >
+                < div className='game-lobby' >
                     <div className='imagesDiv'>
                         <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[0]} ></CrystalImage>
                         <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[1]} ></CrystalImage>
