@@ -79,19 +79,19 @@ export default class Main extends Component {
         else {
             return (
                 < div className='game-lobby' >
-                    <div className='imagesDiv'>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[0]} randIntImg={this.state.randIntImgOne} ></CrystalImage>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[1]} randIntImg={this.state.randIntImgTwo}></CrystalImage>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[2]} randIntImg={this.state.randIntImgThree} ></CrystalImage>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[3]} randIntImg={this.state.randIntImgFour}></CrystalImage>
-                    </div>
-                    <div className="NumDiv">
+                                        <div className="NumDiv">
                         <Score title='Number to Match' score={this.state.randInt} ></Score>
                         <Score title='Your Number' score={this.state.number} ></Score>
                     </div>
                     <div className='ScoresDiv'>
                         <Score title='Wins' score={this.state.wins}></Score>
                         <Score title='Losses' score={this.state.losses}></Score>
+                    </div>
+                    <div className='imagesDiv'>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[0]} randIntImg={this.state.randIntImgOne} ></CrystalImage>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[1]} randIntImg={this.state.randIntImgTwo}></CrystalImage>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[2]} randIntImg={this.state.randIntImgThree} ></CrystalImage>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[3]} randIntImg={this.state.randIntImgFour}></CrystalImage>
                     </div>
                 </div >
             )
