@@ -14,13 +14,18 @@ export default class Main extends Component {
             pictures: ['./images/crystal-1.jpg', './images/crystal-2.jpg', './images/crystal-3.jpg', './images/crystal-4.jpg'],
             randInt: Math.floor(Math.random() * (60 - 10)) + 10,
             wins: 0,
-            losses: 0
+            losses: 0,
+            randIntImgOne: Math.floor(Math.random() * (1 - 10)) + 10,
+            randIntImgTwo: Math.floor(Math.random() * (1 - 10)) + 10,
+            randIntImgThree: Math.floor(Math.random() * (1 - 10)) + 10,
+            randIntImgFour: Math.floor(Math.random() * (1 - 10)) + 10,
         };
-        this.handleClick=this.handleClick.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
 
     getRandNum = (e) => {
-        let imgNumber = parseInt(e.target.alt);
+        console.log(e.target)
+        let imgNumber = parseInt(e.target.getAttribute('datatype'));
         this.setState({
             number: (this.state.number + imgNumber)
         }, this.gameLogic);
@@ -31,7 +36,7 @@ export default class Main extends Component {
         if (this.state.number === this.state.randInt) {
             this.setState(() => ({
                 wins: this.state.wins + 1
-            }),this.reset);
+            }), this.reset);
         }
         else if (this.state.number > this.state.randInt) {
             this.setState(() => ({ losses: this.state.losses + 1 }), this.reset);
@@ -44,10 +49,14 @@ export default class Main extends Component {
             start: true
         })
     }
-    reset(){
+    reset() {
         this.setState({
-          number: 0,
-          randInt: Math.floor(Math.random() * (60 - 10)) + 10
+            number: 0,
+            randInt: Math.floor(Math.random() * (60 - 10)) + 10,
+            randIntImgOne: Math.floor(Math.random() * (1 - 10)) + 10,
+            randIntImgTwo: Math.floor(Math.random() * (1 - 10)) + 10,
+            randIntImgThree: Math.floor(Math.random() * (1 - 10)) + 10,
+            randIntImgFour: Math.floor(Math.random() * (1 - 10)) + 10,
         })
     }
 
@@ -69,13 +78,12 @@ export default class Main extends Component {
         }
         else {
             return (
-
                 < div className='game-lobby' >
                     <div className='imagesDiv'>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[0]} ></CrystalImage>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[1]} ></CrystalImage>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[2]} ></CrystalImage>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[3]} ></CrystalImage>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[0]} randIntImg={this.state.randIntImgOne} ></CrystalImage>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[1]} randIntImg={this.state.randIntImgTwo}></CrystalImage>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[2]} randIntImg={this.state.randIntImgThree} ></CrystalImage>
+                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[3]} randIntImg={this.state.randIntImgFour}></CrystalImage>
                     </div>
                     <div className="NumDiv">
                         <Score title='Number to Match' score={this.state.randInt} ></Score>
