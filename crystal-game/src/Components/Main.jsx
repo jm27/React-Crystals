@@ -11,16 +11,19 @@ export default class Main extends Component {
         this.state = {
             start: false,
             number: 0,
-            pictures: ['./images/crystal-1.jpg', './images/crystal-2.jpg', './images/crystal-3.jpg', './images/crystal-4.jpg'],
+            pictures: ['./images/crystal-1.png', './images/crystal-2.png', './images/crystal-3.png', './images/crystal-4.png'],
             randInt: Math.floor(Math.random() * (60 - 10)) + 10,
             wins: 0,
-            losses: 0,
-            randIntImgOne: Math.floor(Math.random() * (1 - 10)) + 10,
-            randIntImgTwo: Math.floor(Math.random() * (1 - 10)) + 10,
-            randIntImgThree: Math.floor(Math.random() * (1 - 10)) + 10,
-            randIntImgFour: Math.floor(Math.random() * (1 - 10)) + 10,
+            losses: 0, 
+            randIntImgOne: this.randomizeInt(1,10),
+            randIntImgTwo: this.randomizeInt(1,10),
+            randIntImgThree: this.randomizeInt(1,10),
+            randIntImgFour: this.randomizeInt(1,10),
         };
         this.handleClick = this.handleClick.bind(this)
+    }
+    randomizeInt(a,b){
+        return  (Math.floor(Math.random() * (a - b)) + 10)    
     }
 
     getRandNum = (e) => {
@@ -29,7 +32,6 @@ export default class Main extends Component {
         this.setState({
             number: (this.state.number + imgNumber)
         }, this.gameLogic);
-        console.log('ganasstess')
     }
 
     gameLogic() {
@@ -37,6 +39,7 @@ export default class Main extends Component {
             this.setState(() => ({
                 wins: this.state.wins + 1
             }), this.reset);
+            console.log('ganaste!')
         }
         else if (this.state.number > this.state.randInt) {
             this.setState(() => ({ losses: this.state.losses + 1 }), this.reset);
