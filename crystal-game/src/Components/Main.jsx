@@ -14,30 +14,30 @@ export default class Main extends Component {
             pictures: ['./images/crystal-1.png', './images/crystal-2.png', './images/crystal-3.png', './images/crystal-4.png'],
             randInt: Math.floor(Math.random() * (60 - 10)) + 10,
             wins: 0,
-            losses: 0, 
-            randIntImgOne: this.randomizeInt(1,10),
-            randIntImgTwo: this.randomizeInt(1,10),
-            randIntImgThree: this.randomizeInt(1,10),
-            randIntImgFour: this.randomizeInt(1,10),
+            losses: 0,
+            randIntImgOne: this.randomizeInt(1, 10),
+            randIntImgTwo: this.randomizeInt(1, 10),
+            randIntImgThree: this.randomizeInt(1, 10),
+            randIntImgFour: this.randomizeInt(1, 10),
         };
         this.handleClick = this.handleClick.bind(this)
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.setState({
-            randIntImgOne: this.randomizeInt(1,10),
-            randIntImgTwo: this.randomizeInt(1,10),
-            randIntImgThree: this.randomizeInt(1,10),
-            randIntImgFour: this.randomizeInt(1,10),
+            randIntImgOne: this.randomizeInt(1, 10),
+            randIntImgTwo: this.randomizeInt(1, 10),
+            randIntImgThree: this.randomizeInt(1, 10),
+            randIntImgFour: this.randomizeInt(1, 10),
         })
     }
 
     changeBG() {
         document.body.style.background = "url('./images/background-game2.jpg')";
         document.body.style.backgroundSize = "cover";
-      }
-    randomizeInt(a,b){
-        return  (Math.floor(Math.random() * (a - b)) + 10)    
+    }
+    randomizeInt(a, b) {
+        return (Math.floor(Math.random() * (a - b)) + 10)
     }
 
     getRandNum = (e) => {
@@ -97,7 +97,7 @@ export default class Main extends Component {
         else {
             return (
                 < div className='game-lobby' >
-                                        <div className="NumDiv">
+                    <div className="NumDiv">
                         <Score title='Number to Match' score={this.state.randInt} ></Score>
                         <Score title='Your Number' score={this.state.number} ></Score>
                     </div>
@@ -105,11 +105,17 @@ export default class Main extends Component {
                         <Score title='Wins' score={this.state.wins}></Score>
                         <Score title='Losses' score={this.state.losses}></Score>
                     </div>
-                    <div className='imagesDiv'>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[0]} randIntImg={this.state.randIntImgOne} ></CrystalImage>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[1]} randIntImg={this.state.randIntImgTwo}></CrystalImage>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[2]} randIntImg={this.state.randIntImgThree} ></CrystalImage>
-                        <CrystalImage getRandNum={this.getRandNum} src={this.state.pictures[3]} randIntImg={this.state.randIntImgFour}></CrystalImage>
+                    <div className='imagesDiv1'>
+                        <CrystalImage id={'image1'} getRandNum={this.getRandNum} src={this.state.pictures[0]} randIntImg={this.state.randIntImgOne} ></CrystalImage>
+                    </div>
+                    <div className='imagesDiv2'>
+                        <CrystalImage id={'image2'} getRandNum={this.getRandNum} src={this.state.pictures[2]} randIntImg={this.state.randIntImgThree} ></CrystalImage>
+                    </div>
+                    <div className='imagesDiv3'>
+                        <CrystalImage id={'image3'} getRandNum={this.getRandNum} src={this.state.pictures[1]} randIntImg={this.state.randIntImgTwo}></CrystalImage>
+                    </div>
+                    <div className='imagesDiv4'>
+                        <CrystalImage id={'image4'} getRandNum={this.getRandNum} src={this.state.pictures[3]} randIntImg={this.state.randIntImgFour}></CrystalImage>
                     </div>
                 </div >
             )

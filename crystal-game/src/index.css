@@ -2,13 +2,13 @@ html {
   color: white;
   text-align: center;
 }
-.header{
+.header {
   text-decoration-line: underline;
   text-decoration-style: dotted;
 }
-.instructions{
+.instructions {
   color: black;
-  background: rgba(208,228,245,0.84) no-repeat scroll 0 0;
+  background: rgba(208, 228, 245, 0.84) no-repeat scroll 0 0;
 }
 body {
   min-height: 100vh;
@@ -21,6 +21,55 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+/* className="NumDiv"
+className='ScoresDiv
+className='imagesDiv' */
+/* 
+.content.first article {
+  grid-column: 1;
+  grid-row: span 3;
+  background: linear-gradient(to bottom, #65cc3e 0%, #41c300 50%, #2eb300 100%);
+} */
+
+@media only screen and (min-width: 412px) {
+  .game-lobby {
+    display: grid;
+    grid-template-columns:  repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
+    gap: 1rem;
+  }
+
+  .content.first .NumDiv {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .content.first .ScoresDiv {
+    grid-column: 2;
+    grid-row: 1;
+    width: 250px;
+  }
+  .imagesDiv1 #image1.images {
+    grid-column: 1 ;
+    grid-row: 2;
+    width: 250px;
+  }
+  .imagesDiv2 #image2.images {
+    grid-column: 2 ;
+    grid-row: 2;
+    width: 250px;
+  }
+  .imagesDiv3 #image3.images {
+    grid-column: 1 ;
+    grid-row: 3;
+    width: 250px;
+  }
+  .imagesDiv4 #image4.images {
+    grid-column: 2 ;
+    grid-row: 3;
+    width: 250px;
+  }
+  
 }

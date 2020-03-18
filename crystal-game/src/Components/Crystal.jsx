@@ -10,7 +10,7 @@ export default class CrystalImage extends Component {
     }
     render() {
         return (
-            <img className='images' onClick={this.props.getRandNum}  alt='Crystals' datatype={this.props.randIntImg} src={this.props.src}></img>
+            <img className='images' id={this.props.id} onClick={this.props.getRandNum}  alt='Crystals' datatype={this.props.randIntImg} src={this.props.src}></img>
         );
     }
 }
