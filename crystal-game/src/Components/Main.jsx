@@ -36,7 +36,7 @@ export default class Main extends Component {
         let idRoot = document.getElementById('root');
         document.body.style.background = "url('./images/background-game2.jpg')";
         document.body.style.backgroundSize = "cover";
-        idRoot.style.background = "rgba(255, 0, 0, 0.2)"
+        idRoot.style.background = "rgba(255, 0, 0, 0.5)"
     }
     randomizeInt(a, b) {
         return (Math.floor(Math.random() * (a - b)) + 10)
@@ -83,7 +83,8 @@ export default class Main extends Component {
     render() {
         if (!this.state.start) {
             return (<div className='start'>
-                <p className='instructions'> Instructions<br />
+                                <h4 id='instructions-header'>&#9753;Instructions&#10087;</h4>
+                <p className='instructions'>     
                 &#9753;You will be given a random number at the start of the game.<br />
 
                 &#9753;There are four crystals below by clicking on a crystal you will add a specific amount of points to your total score.<br/>
@@ -98,7 +99,7 @@ export default class Main extends Component {
 
                 &#9753;Memorize before you cannot see the numbers again!&#10087;
         </p>
-                <button onClick={this.handleClick}>Start!</button></div>)
+                <button className='myButton' onClick={this.handleClick}>Start!</button></div>)
         }
         else {
             return (
