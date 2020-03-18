@@ -32,9 +32,11 @@ export default class Main extends Component {
         })
     }
 
-    changeBG() {
+    changeBG() { 
+        let idRoot = document.getElementById('root');
         document.body.style.background = "url('./images/background-game2.jpg')";
         document.body.style.backgroundSize = "cover";
+        idRoot.style.background = "rgba(255, 0, 0, 0.2)"
     }
     randomizeInt(a, b) {
         return (Math.floor(Math.random() * (a - b)) + 10)
@@ -81,16 +83,20 @@ export default class Main extends Component {
     render() {
         if (!this.state.start) {
             return (<div className='start'>
-                <p className='instructions'> Instructions
-                You will be given a random number at the start of the game.
+                <p className='instructions'> Instructions<br />
+                &#9753;You will be given a random number at the start of the game.<br />
 
-                There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
+                &#9753;There are four crystals below by clicking on a crystal you will add a specific amount of points to your total score.<br/>
 
-                You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.
+                &#9753;You win the game by matching your total score to random number<br/>
+                
+                &#9753;You lose the game if your total score goes above the random number.<br/>
 
-                The value of each crystal is hidden from you until you click on it.
+                &#9753;The value of each crystal is hidden from you until you click on it.<br/>
 
-                Each time when the game starts. the game will change the values of each crystal.
+                &#9753;Each time when the game starts. the game will change the values of each crystal.<br/>
+
+                &#9753;Memorize before you cannot see the numbers again!&#10087;
         </p>
                 <button onClick={this.handleClick}>Start!</button></div>)
         }

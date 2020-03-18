@@ -8,7 +8,7 @@ html {
 }
 .instructions {
   color: black;
-  background: rgba(208, 228, 245, 0.84) no-repeat scroll 0 0;
+  background: rgba(208, 228, 245, 0.4) no-repeat scroll 0 0;
 }
 body {
   min-height: 100vh;
@@ -20,6 +20,9 @@ body {
   background-size: cover;
 }
 
+#root{
+  background: rgb(37, 59, 78,0.8)
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -73,3 +76,4 @@ className='imagesDiv' */
   }
   
 }
+
