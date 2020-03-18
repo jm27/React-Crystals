@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CrystalImage from './Crystal';
 import Score from "./Score";
+import Modal from './Modal';
 
 
 
@@ -19,11 +20,14 @@ export default class Main extends Component {
             randIntImgTwo: this.randomizeInt(1, 10),
             randIntImgThree: this.randomizeInt(1, 10),
             randIntImgFour: this.randomizeInt(1, 10),
+            result: 'Won',
         };
         this.handleClick = this.handleClick.bind(this)
+        
     }
 
     componentDidMount() {
+        
         this.setState({
             randIntImgOne: this.randomizeInt(1, 10),
             randIntImgTwo: this.randomizeInt(1, 10),
@@ -53,15 +57,24 @@ export default class Main extends Component {
     gameLogic() {
         if (this.state.number === this.state.randInt) {
             this.setState(() => ({
-                wins: this.state.wins + 1
+                wins: this.state.wins + 1,
+                result: 'won!!',
             }), this.reset);
             console.log('ganaste!')
+            this.openModal()
         }
         else if (this.state.number > this.state.randInt) {
-            this.setState(() => ({ losses: this.state.losses + 1 }), this.reset);
+            this.setState(() => ({ result: 'lost!',losses: this.state.losses + 1 }), this.reset);
             console.log('perdistess')
+            this.openModal()
         }
     }
+    
+    openModal(){
+        let modalOuter= document.querySelector('.modal-outer');       
+         modalOuter.classList.add('open');
+    }
+
 
     handleClick() {
         this.setState({
@@ -124,6 +137,7 @@ export default class Main extends Component {
                     <div className='imagesDiv4'>
                         <CrystalImage id={'image4'} getRandNum={this.getRandNum} src={this.state.pictures[3]} randIntImg={this.state.randIntImgFour}></CrystalImage>
                     </div>
+                    <Modal wins={this.state.wins} losses={this.state.losses} result={this.state.result}></Modal>
                 </div >
             )
         }
