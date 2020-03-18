@@ -22,6 +22,20 @@ export default class Main extends Component {
         };
         this.handleClick = this.handleClick.bind(this)
     }
+
+    componentDidMount(){
+        this.setState({
+            randIntImgOne: this.randomizeInt(1,10),
+            randIntImgTwo: this.randomizeInt(1,10),
+            randIntImgThree: this.randomizeInt(1,10),
+            randIntImgFour: this.randomizeInt(1,10),
+        })
+    }
+
+    changeBG() {
+        document.body.style.background = "url('./images/background-game2.jpg')";
+        document.body.style.backgroundSize = "cover";
+      }
     randomizeInt(a,b){
         return  (Math.floor(Math.random() * (a - b)) + 10)    
     }
@@ -51,6 +65,7 @@ export default class Main extends Component {
         this.setState({
             start: true
         })
+        this.changeBG();
     }
     reset() {
         this.setState({

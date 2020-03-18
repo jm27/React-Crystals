@@ -6,6 +6,10 @@ html {
   text-decoration-line: underline;
   text-decoration-style: dotted;
 }
+.instructions{
+  color: black;
+  background: rgba(208,228,245,0.84) no-repeat scroll 0 0;
+}
 body {
   min-height: 100vh;
   display: grid;
