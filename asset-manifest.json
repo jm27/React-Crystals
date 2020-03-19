@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React-Crystals/static/css/main.700a4dee.chunk.css",
+    "main.js": "/React-Crystals/static/js/main.80c17c48.chunk.js",
+    "main.js.map": "/React-Crystals/static/js/main.80c17c48.chunk.js.map",
+    "runtime-main.js": "/React-Crystals/static/js/runtime-main.2d9db628.js",
+    "runtime-main.js.map": "/React-Crystals/static/js/runtime-main.2d9db628.js.map",
+    "static/js/2.a8b67986.chunk.js": "/React-Crystals/static/js/2.a8b67986.chunk.js",
+    "static/js/2.a8b67986.chunk.js.map": "/React-Crystals/static/js/2.a8b67986.chunk.js.map",
+    "index.html": "/React-Crystals/index.html",
+    "precache-manifest.3d520aabe65277f68d20dc7754f217ec.js": "/React-Crystals/precache-manifest.3d520aabe65277f68d20dc7754f217ec.js",
+    "service-worker.js": "/React-Crystals/service-worker.js",
+    "static/css/main.700a4dee.chunk.css.map": "/React-Crystals/static/css/main.700a4dee.chunk.css.map",
+    "static/js/2.a8b67986.chunk.js.LICENSE.txt": "/React-Crystals/static/js/2.a8b67986.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/React-Crystals/static/media/background.89a9e9c2.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2d9db628.js",
+    "static/js/2.a8b67986.chunk.js",
+    "static/css/main.700a4dee.chunk.css",
+    "static/js/main.80c17c48.chunk.js"
+  ]
+}
