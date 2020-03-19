@@ -19,8 +19,8 @@ export default class Modal extends Component {
     <h2>You {this.props.result}</h2>
                 <Score title='Wins' score={this.props.wins}></Score>
                 <Score title='Losses' score={this.props.losses}></Score>
-                <button onClick={this.closeModal}>Go again!</button>
-                <button onClick={() => { this.props.restart(); this.closeModal();}} >Reset Score</button>
+                <button className='modalButton' onClick={this.closeModal}>Go again!</button>
+                <button className='modalButton' onClick={() => { this.props.restart(); this.closeModal();}} >Reset Score</button>
             </div>
         </div>)
     }
