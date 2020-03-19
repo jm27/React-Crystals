@@ -20,7 +20,7 @@ export default class Modal extends Component {
                 <Score title='Wins' score={this.props.wins}></Score>
                 <Score title='Losses' score={this.props.losses}></Score>
                 <button onClick={this.closeModal}>Go again!</button>
-                <button >Reset Score</button>
+                <button onClick={() => { this.props.restart(); this.closeModal();}} >Reset Score</button>
             </div>
         </div>)
     }

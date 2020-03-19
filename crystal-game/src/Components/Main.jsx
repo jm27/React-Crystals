@@ -23,7 +23,7 @@ export default class Main extends Component {
             result: 'Won',
         };
         this.handleClick = this.handleClick.bind(this)
-        
+        this.restart = this.restart.bind(this)
     }
 
     componentDidMount() {
@@ -92,6 +92,20 @@ export default class Main extends Component {
             randIntImgFour: Math.floor(Math.random() * (1 - 10)) + 10,
         })
     }
+    restart() {
+        this.setState({
+            number: 0,
+            wins: 0,
+            losses: 0,
+            randInt: Math.floor(Math.random() * (60 - 10)) + 10,
+            randIntImgOne: Math.floor(Math.random() * (1 - 10)) + 10,
+            randIntImgTwo: Math.floor(Math.random() * (1 - 10)) + 10,
+            randIntImgThree: Math.floor(Math.random() * (1 - 10)) + 10,
+            randIntImgFour: Math.floor(Math.random() * (1 - 10)) + 10,
+        })
+    }
+
+
 
     render() {
         if (!this.state.start) {
@@ -137,7 +151,7 @@ export default class Main extends Component {
                     <div className='imagesDiv4'>
                         <CrystalImage id={'image4'} getRandNum={this.getRandNum} src={this.state.pictures[3]} randIntImg={this.state.randIntImgFour}></CrystalImage>
                     </div>
-                    <Modal wins={this.state.wins} losses={this.state.losses} result={this.state.result}></Modal>
+                    <Modal wins={this.state.wins} losses={this.state.losses} result={this.state.result} restart={this.restart}></Modal>
                 </div >
             )
         }
