@@ -2,6 +2,16 @@ html {
   color: white;
   text-align: center;
 }
+
+body {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background: url(./background.png);
+  background-size: 361px 640px;
+}
+
 .header {
   text-decoration-line: underline;
   text-decoration-style: dotted;
@@ -81,14 +91,6 @@ html {
   top: 3px;
 }
 
-body {
-  min-height: 100vh;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  background: url(./background.png);
-  background-size: 361px 640px;
-}
 
 #root {
   background: rgb(37, 59, 78, 0.8);
@@ -136,6 +138,40 @@ code {
   /* transition: transform .8s; */
 }
 
+
+/* Grid */
+.game-lobby {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
+  gap: 4px;
+}
+
+.content.first .NumDiv {
+  grid-column: 1;
+  grid-row: 1;
+}
+.content.first .ScoresDiv {
+  grid-column: 2;
+  grid-row: 1;
+}
+.imagesDiv1 #image1.images {
+  grid-column: 1;
+  grid-row: 2;
+}
+.imagesDiv2 #image2.images {
+  grid-column: 2;
+  grid-row: 2;
+}
+.imagesDiv3 #image3.images {
+  grid-column: 1;
+  grid-row: 3;
+}
+.imagesDiv4 #image4.images {
+  grid-column: 2;
+  grid-row: 3;
+}
+
 /* .modal-outer.open .modal-inner {
   transform: translateY(0);
 } */
@@ -160,24 +196,7 @@ code {
     grid-row: 1;
     width: 250px;
   }
-  .imagesDiv1 #image1.images {
-    grid-column: 1;
-    grid-row: 2;
-    width: 250px;
-  }
-  .imagesDiv2 #image2.images {
-    grid-column: 2;
-    grid-row: 2;
-    width: 250px;
-  }
-  .imagesDiv3 #image3.images {
-    grid-column: 1;
-    grid-row: 3;
-    width: 250px;
-  }
-  .imagesDiv4 #image4.images {
-    grid-column: 2;
-    grid-row: 3;
+  .images {
     width: 250px;
   }
 }
