@@ -39,7 +39,7 @@ export default class Main extends Component {
     changeBG() { 
         let idRoot = document.getElementById('root');
         document.body.style.background = "url('./images/background-game2.jpg')";
-        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundSize = '361px 640px'
         idRoot.style.background = "rgba(255, 0, 0, 0.5)"
     }
     randomizeInt(a, b) {

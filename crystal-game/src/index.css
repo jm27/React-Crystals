@@ -86,9 +86,8 @@ body {
   display: grid;
   align-items: center;
   justify-items: center;
-  background: white;
   background: url(./background.png);
-  background-size: cover;
+  background-size: 361px 640px;
 }
 
 #root {
@@ -142,6 +141,9 @@ code {
 } */
 
 @media only screen and (min-width: 412px) {
+  body{
+    background-size: cover;
+  }
   .game-lobby {
     display: grid;
     grid-template-columns: repeat(2, auto);
