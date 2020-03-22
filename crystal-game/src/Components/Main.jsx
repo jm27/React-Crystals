@@ -27,7 +27,7 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
-        
+
         this.setState({
             randIntImgOne: this.randomizeInt(1, 10),
             randIntImgTwo: this.randomizeInt(1, 10),
@@ -36,7 +36,7 @@ export default class Main extends Component {
         })
     }
 
-    changeBG() { 
+    changeBG() {
         let idRoot = document.getElementById('root');
         document.body.style.background = "url('./images/background-game2.jpg')";
         document.body.style.backgroundSize = '361px 640px'
@@ -48,11 +48,17 @@ export default class Main extends Component {
 
     getRandNum = (e) => {
         console.log(e.target)
-        let imgNumber = parseInt(e.target.getAttribute('datatype'));
+        const imgNumber = parseInt(e.target.getAttribute('datatype'));
         this.setState({
             number: (this.state.number + imgNumber)
         }, this.gameLogic);
-    }
+        
+        let images = document.querySelectorAll('.img-num');
+        images = Array.from(images)
+        images.map(img => img.classList.toggle('active'))
+
+        
+        }
 
     gameLogic() {
         if (this.state.number === this.state.randInt) {
@@ -64,15 +70,27 @@ export default class Main extends Component {
             this.openModal()
         }
         else if (this.state.number > this.state.randInt) {
-            this.setState(() => ({ result: 'lost!',losses: this.state.losses + 1 }), this.reset);
+            this.setState(() => ({ result: 'lost!', losses: this.state.losses + 1 }), this.reset);
             console.log('perdistess')
             this.openModal()
         }
     }
-    
-    openModal(){
-        let modalOuter= document.querySelector('.modal-outer');       
-         modalOuter.classList.add('open');
+
+    openModal() {
+        let modalOuter = document.querySelector('.modal-outer');
+        modalOuter.classList.add('open');
+    }
+
+
+    showNumber() {
+        let images = document.querySelectorAll('.img-num');
+        console.log(Array.from(images))
+        images = Array.from(images)
+        images.map(img => function toggleClass(){
+            img.querySelector('active')
+            ?console.log('active')
+            :img.classList.add('active')
+        })
     }
 
 
@@ -110,19 +128,19 @@ export default class Main extends Component {
     render() {
         if (!this.state.start) {
             return (<div className='start'>
-                                <h4 id='instructions-header'>&#9753;Instructions&#10087;</h4>
-                <p className='instructions'>     
-                &#9753;You will be given a random number at the start of the game.<br />
+                <h4 id='instructions-header'>&#9753;Instructions&#10087;</h4>
+                <p className='instructions'>
+                    &#9753;You will be given a random number at the start of the game.<br />
 
-                &#9753;There are four crystals below by clicking on a crystal you will add a specific amount of points to your total score.<br/>
+                &#9753;There are four crystals below by clicking on a crystal you will add a specific amount of points to your total score.<br />
 
-                &#9753;You win the game by matching your total score to random number<br/>
-                
-                &#9753;You lose the game if your total score goes above the random number.<br/>
+                &#9753;You win the game by matching your total score to random number<br />
 
-                &#9753;The value of each crystal is hidden from you until you click on it.<br/>
+                &#9753;You lose the game if your total score goes above the random number.<br />
 
-                &#9753;Each time when the game starts. the game will change the values of each crystal.<br/>
+                &#9753;The value of each crystal is hidden from you until you click on it.<br />
+
+                &#9753;Each time when the game starts. the game will change the values of each crystal.<br />
 
                 &#9753;Memorize before you cannot see the numbers again!&#10087;
         </p>
@@ -139,17 +157,23 @@ export default class Main extends Component {
                         <Score title='Wins' score={this.state.wins}></Score>
                         <Score title='Losses' score={this.state.losses}></Score>
                     </div>
-                    <div className='imagesDiv1'>
+                    <div className='imagesDiv'>
                         <CrystalImage id={'image1'} getRandNum={this.getRandNum} src={this.state.pictures[0]} randIntImg={this.state.randIntImgOne} ></CrystalImage>
+                        <div className="img-num">{this.state.randIntImgOne}</div>
                     </div>
-                    <div className='imagesDiv2'>
+                    <div className='imagesDiv'>
                         <CrystalImage id={'image2'} getRandNum={this.getRandNum} src={this.state.pictures[2]} randIntImg={this.state.randIntImgThree} ></CrystalImage>
+                        <div className="img-num">{this.state.randIntImgTwo}</div>
                     </div>
-                    <div className='imagesDiv3'>
+                    <div className='imagesDiv'>
                         <CrystalImage id={'image3'} getRandNum={this.getRandNum} src={this.state.pictures[1]} randIntImg={this.state.randIntImgTwo}></CrystalImage>
+                        <div className="img-num">{this.state.randIntImgThree}</div>
+
                     </div>
-                    <div className='imagesDiv4'>
+                    <div className='imagesDiv'>
                         <CrystalImage id={'image4'} getRandNum={this.getRandNum} src={this.state.pictures[3]} randIntImg={this.state.randIntImgFour}></CrystalImage>
+                        <div className="img-num">{this.state.randIntImgFour}</div>
+
                     </div>
                     <Modal wins={this.state.wins} losses={this.state.losses} result={this.state.result} restart={this.restart}></Modal>
                 </div >

@@ -138,6 +138,26 @@ code {
   /* transition: transform .8s; */
 }
 
+/* Image number */
+.imagesDiv{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.img-num{
+  opacity: 0;
+  background: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: xx-large;
+}
+.imagesDiv .img-num.active{
+  opacity: .8;
+ 
+}
+
 
 /* Grid */
 .game-lobby {
