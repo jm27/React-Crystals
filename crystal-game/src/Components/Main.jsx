@@ -128,8 +128,6 @@ export default class Main extends Component {
                 &#9753;The value of each crystal is hidden from you until you click on it.<br />
 
                 &#9753;Each time when the game starts. the game will change the values of each crystal.<br />
-
-                &#9753;Memorize before you cannot see the numbers again!&#10087;
         </p>
                 <button className='myButton' onClick={this.handleClick}>Start!</button></div>)
         }
@@ -145,8 +143,7 @@ export default class Main extends Component {
                         <Score title='Losses' score={this.state.losses}></Score>
                     </div>
                     <div className='imagesDiv'>
-                        <CrystalImage id={'image1'} getRandNum={this.getRandNum} src={this.state.pictures[0]} randIntImg={this.state.randIntImgOne} ></CrystalImage>
-                    </div>
+                        <CrystalImage id={'image1'} getRandNum={this.getRandNum} src={this.state.pictures[0]} randIntImg={this.state.randIntImgOne} ></CrystalImage>                    </div>
                     <div className='imagesDiv'>
                         <CrystalImage id={'image2'} getRandNum={this.getRandNum} src={this.state.pictures[2]} randIntImg={this.state.randIntImgThree} ></CrystalImage>
                     </div>
