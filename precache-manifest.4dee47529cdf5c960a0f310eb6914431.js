@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0bca23d4e73ce3d199230103b6ad2b3a",
+    "revision": "39e11ec50430db95898e1bbd6d44576f",
     "url": "/React-Crystals/index.html"
   },
   {
-    "revision": "1ae1caf1dd3b5ac90bca",
-    "url": "/React-Crystals/static/css/main.700a4dee.chunk.css"
+    "revision": "f4456695fd0ef9947d54",
+    "url": "/React-Crystals/static/css/main.c91a6a31.chunk.css"
   },
   {
     "revision": "3ad28d26ae021e8b0f27",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/React-Crystals/static/js/2.a8b67986.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1ae1caf1dd3b5ac90bca",
-    "url": "/React-Crystals/static/js/main.80c17c48.chunk.js"
+    "revision": "f4456695fd0ef9947d54",
+    "url": "/React-Crystals/static/js/main.4f76d538.chunk.js"
   },
   {
     "revision": "a9fe29800e652cc06a06",
