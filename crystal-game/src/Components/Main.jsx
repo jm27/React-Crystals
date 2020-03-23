@@ -81,19 +81,6 @@ export default class Main extends Component {
         modalOuter.classList.add('open');
     }
 
-
-    showNumber() {
-        let images = document.querySelectorAll('.img-num');
-        console.log(Array.from(images))
-        images = Array.from(images)
-        images.map(img => function toggleClass(){
-            img.querySelector('active')
-            ?console.log('active')
-            :img.classList.add('active')
-        })
-    }
-
-
     handleClick() {
         this.setState({
             start: true
@@ -159,21 +146,15 @@ export default class Main extends Component {
                     </div>
                     <div className='imagesDiv'>
                         <CrystalImage id={'image1'} getRandNum={this.getRandNum} src={this.state.pictures[0]} randIntImg={this.state.randIntImgOne} ></CrystalImage>
-                        <div className="img-num">{this.state.randIntImgOne}</div>
                     </div>
                     <div className='imagesDiv'>
                         <CrystalImage id={'image2'} getRandNum={this.getRandNum} src={this.state.pictures[2]} randIntImg={this.state.randIntImgThree} ></CrystalImage>
-                        <div className="img-num">{this.state.randIntImgTwo}</div>
                     </div>
                     <div className='imagesDiv'>
                         <CrystalImage id={'image3'} getRandNum={this.getRandNum} src={this.state.pictures[1]} randIntImg={this.state.randIntImgTwo}></CrystalImage>
-                        <div className="img-num">{this.state.randIntImgThree}</div>
-
                     </div>
                     <div className='imagesDiv'>
                         <CrystalImage id={'image4'} getRandNum={this.getRandNum} src={this.state.pictures[3]} randIntImg={this.state.randIntImgFour}></CrystalImage>
-                        <div className="img-num">{this.state.randIntImgFour}</div>
-
                     </div>
                     <Modal wins={this.state.wins} losses={this.state.losses} result={this.state.result} restart={this.restart}></Modal>
                 </div >
