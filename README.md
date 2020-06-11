@@ -28,6 +28,8 @@ Usage
 npm run start
 
 ## Deploying to Github Pages
+![Homepage](React-Clicky-Demo.gif)
+
 If you want to deploy a production version to Github Pages, there is a gh-pages package installed as part of the package.json packages that will help with that deploy. Follow the steps below:
 
 Update the package.json file and change the "homepage" entry
